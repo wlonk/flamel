@@ -27,11 +27,6 @@ class FocalLine:
     def render_into(self, drawing: svgwrite.Drawing) -> None:
         ORIENT_X = 0
         ORIENT_Y = 10
-        BACK_X = 8.661
-        # So, doing the math indicated that this value should be 15.
-        # That was transparently wrong, so I have to assume that the
-        # math was wrong.
-        #
         # The radius of the circumcircle of an equilateral triangle:
         #
         # s/sqrt(3) = r
@@ -42,8 +37,13 @@ class FocalLine:
         #
         # (s * cos(270+/-30), s * sin(270+/-30))
         #
-        # But that gave a very wrong answer, so I just eyeballed it.
-        BACK_Y = 5.2
+        # This gives us 8.661 for the x value. That's fine.
+        #
+        # Which gives 15 for the y value; but because we're starting at
+        # 10, not 0, on that dimension, we need to subtract 10 from it,
+        # and that gives us:
+        BACK_X = 8.661
+        BACK_Y = 5
         if self.element == Element.EARTH:
             # Down, bar
             points = [
