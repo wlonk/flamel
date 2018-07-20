@@ -1,5 +1,5 @@
 Nicolas Flamel
-===============================
+==============
 
 version number: 0.1.0
 author: Kit La Touche
